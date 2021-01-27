@@ -1,4 +1,5 @@
 import React from "react";
+import { commerce } from "./lib/commerce.js";
 
 // import Products from "./components/Products/Products.jsx";
 // import Navbar from "./components/Navbar/Navbar.jsx";
