@@ -9,18 +9,20 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
-import classes from "*.module.css";
 
-import logo from "../../assets/The-Herbery_workmark_Black.svg";
+import logo from "../../assets/The-Herbery_wordmark_Black.svg";
+import useStyles from "./styles.js";
 
 const Navbar = () => {
+  const classes = useStyles();
+
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
           <Typography variant="h6" className={classes.title} color="inherit">
             <img
-              src={}
+              src={logo}
               alt="The Herbery"
               height="45px"
               className={classes.image}
