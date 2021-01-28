@@ -23,9 +23,30 @@ const App = () => {
   };
 
   const handleAddToCart = async (productId, quantity) => {
-    const item = await commerce.cart.add(productId, quantity);
+    // destructure cart FROM the response object | same as saying ==> const res = await...    setCart(res.cart)
+    const { cart } = await commerce.cart.add(productId, quantity);
 
-    setCart(item.cart);
+    setCart(cart);
+  };
+
+  const handleUpdateCartQuantity = async (productId, quantity) => {
+    // destructure cart FROM the response object | same as saying ==> const res = await...    setCart(res.cart)
+    const { cart } = await commerce.cart.update(productId, { quantity });
+
+    setCart(cart);
+  };
+
+  const handleRemoveFromCart = async (productId) => {
+    // destructure cart FROM the response object | same as saying ==> const res = await...    setCart(res.cart)
+    const { cart } = await commerce.cart.remove(productId);
+
+    setCart(cart);
+  };
+
+  const handleEmptyCart = async () => {
+    const { cart } = await commerce.cart.empty();
+
+    setCart(cart);
   };
 
   useEffect(() => {
