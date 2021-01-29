@@ -17,10 +17,11 @@ import PaymentForm from "../PaymentForm.jsx";
 
 const steps = ["Shipping Address", "Payment Details"];
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
+  const [shippingData, setShippingData] = useState({});
 
   useEffect(() => {
     // Created + Called function here so that we can use async
@@ -30,7 +31,6 @@ const Checkout = ({ cart }) => {
           type: "cart",
         });
 
-        console.log(token);
         setCheckoutToken(token);
       } catch (err) {
         console.error(err);
@@ -40,13 +40,31 @@ const Checkout = ({ cart }) => {
     generateToken();
   }, [cart]);
 
+  const nextStep = () =>
+    setActiveStep((previousActiveStep) => previousActiveStep + 1);
+
+  const backStep = () =>
+    setActiveStep((previousActiveStep) => previousActiveStep - 1);
+
+  const next = (data) => {
+    setShippingData(data);
+
+    nextStep();
+  };
+
   const Confirmation = () => <div>Confirmation</div>;
 
   const Form = () =>
     activeStep === 0 ? (
-      <AddressForm checkoutToken={checkoutToken} />
+      <AddressForm checkoutToken={checkoutToken} next={next} />
     ) : (
-      <PaymentForm />
+      <PaymentForm
+        shippingData={shippingData}
+        checkoutToken={checkoutToken}
+        nextStep={nextStep}
+        backStep={backStep}
+        handleCaptureCheckout={handleCaptureCheckout}
+      />
     );
 
   return (
