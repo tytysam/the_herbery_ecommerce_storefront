@@ -43,7 +43,6 @@ const Product = ({ product, onAddToCart }) => {
           aria-label="Add to Cart"
           onClick={() => onAddToCart(product.id, 1)}
         >
-          Add to Cart {` `}
           <AddShoppingCart />
         </IconButton>
       </CardActions>
