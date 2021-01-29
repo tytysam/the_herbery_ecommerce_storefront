@@ -6,7 +6,7 @@ import { commerce } from "./lib/commerce.js";
 // import Navbar from "./components/Navbar/Navbar.jsx";
 // import Cart from "./components/Cart/Cart.jsx"
 
-import { Products, Navbar, Cart } from "./components";
+import { Products, Navbar, Cart, Checkout } from "./components";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -62,7 +62,7 @@ const App = () => {
         <Navbar totalItems={cart.total_items} />
         <Switch>
           <Route exact path="/">
-            {/* HOME LAYOUT WILL LIVE HERE */}
+            {/* HOME COMPONENT WILL LIVE HERE */}
             <Products products={products} onAddToCart={handleAddToCart} />
           </Route>
           <Route exact path="/cart">
@@ -72,6 +72,9 @@ const App = () => {
               handleRemoveFromCart={handleRemoveFromCart}
               handleEmptyCart={handleEmptyCart}
             />
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </div>
