@@ -10,7 +10,7 @@ import {
   Button,
   CssBaseline,
 } from "@material-ui/core";
-import { commerce } from "../../../lib/commerce";
+import { commerce } from "../../../lib/commerce.js";
 import { Link, useHistory } from "react-router-dom";
 
 import useStyles from "./styles.js";

@@ -6,7 +6,7 @@ import { commerce } from "./lib/commerce.js";
 // import Navbar from "./components/Navbar/Navbar.jsx";
 // import Cart from "./components/Cart/Cart.jsx"
 
-import { Products, Navbar, Cart, Checkout } from "./components";
+import { Products, Navbar, Cart, Checkout, ShowProduct } from "./components";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -46,6 +46,8 @@ const App = () => {
   };
 
   const handleEmptyCart = async () => {
+    // destructure cart FROM the response object | same as saying ==> const res = await...    setCart(res.cart)
+
     const { cart } = await commerce.cart.empty();
 
     setCart(cart);
@@ -76,17 +78,21 @@ const App = () => {
     fetchCart();
   }, []);
 
-  console.log(cart);
-
   return (
     <Router>
       <div>
         <Navbar totalItems={cart.total_items} />
         <Switch>
           <Route exact path="/">
-            {/* HOME COMPONENT WILL LIVE HERE */}
+            {/* HOME COMPONENT WILL ALSO LIVE HERE */}
             <Products products={products} onAddToCart={handleAddToCart} />
           </Route>
+          <Route
+            path="/products/:permalink"
+            render={(routerProps) => {
+              return <ShowProduct routerProps={routerProps} />;
+            }}
+          />
           <Route exact path="/cart">
             <Cart
               cart={cart}
