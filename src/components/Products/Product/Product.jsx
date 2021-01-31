@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardMedia,
@@ -13,19 +14,23 @@ import useStyles from "./styles.js";
 
 const Product = ({ product, onAddToCart }) => {
   const classes = useStyles();
-
-  console.log(product);
-
   return (
     <Card className={classes.root}>
       <CardMedia
+        component={Link}
+        to={`/products/${product.permalink}`}
         className={classes.media}
         image={product.media.source}
         title={product.name}
       />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography variant="h5" gutterBottom>
+          <Typography
+            component={Link}
+            to={`/plants/${product.permalink}`}
+            variant="h5"
+            gutterBottom
+          >
             {product.name}
           </Typography>
           <Typography variant="h5">

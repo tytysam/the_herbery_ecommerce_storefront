@@ -37,7 +37,7 @@ const Navbar = ({ totalItems }) => {
             />
           </Typography>
           <div className={classes.grow} />
-          {location.pathname === "/" && (
+          {location.pathname !== "/cart" && (
             <div className={classes.button}>
               <IconButton
                 component={Link}
