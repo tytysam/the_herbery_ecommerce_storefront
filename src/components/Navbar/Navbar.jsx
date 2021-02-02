@@ -10,7 +10,7 @@ import {
 import { ShoppingCart } from "@material-ui/icons";
 
 import logo from "../../assets/images/The-Herbery_wordmark_Succulent.svg";
-import useStyles from "./styles.js";
+import useStyles from "./navbarStyles.js";
 
 const Navbar = ({ totalItems }) => {
   const classes = useStyles();
@@ -19,21 +19,38 @@ const Navbar = ({ totalItems }) => {
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
-        <Toolbar>
+        <Toolbar className={classes.appbarWrapper}>
           <Typography
             component={Link}
             to="/"
             variant="h6"
             className={classes.title}
-            color="inherit"
           >
             <img
               src={logo}
               alt="The Herbery"
               height="45px"
-              className={classes.image}
+              className={classes.wordmark}
             />
           </Typography>
+          {/* <Typography
+            component={Link}
+            to="/about"
+            variant="h6"
+            className={classes.title}
+            color="primary"
+          >
+            About
+          </Typography> */}
+          {/* <Typography
+            component={Link}
+            to="/products"
+            variant="h6"
+            className={classes.title}
+            color="inherit"
+          >
+            <h1>Shop</h1>
+          </Typography> */}
           <div className={classes.grow} />
           {location.pathname !== "/cart" &&
           location.pathname !== "/checkout" ? (
