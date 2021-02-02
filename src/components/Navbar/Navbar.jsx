@@ -5,13 +5,11 @@ import {
   Toolbar,
   IconButton,
   Badge,
-  MenuItem,
-  Menu,
   Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 
-import logo from "../../assets/The-Herbery_wordmark_Black.svg";
+import logo from "../../assets/images/The-Herbery_wordmark_Succulent.svg";
 import useStyles from "./styles.js";
 
 const Navbar = ({ totalItems }) => {
@@ -37,7 +35,8 @@ const Navbar = ({ totalItems }) => {
             />
           </Typography>
           <div className={classes.grow} />
-          {location.pathname !== "/cart" && (
+          {location.pathname !== "/cart" &&
+          location.pathname !== "/checkout" ? (
             <div className={classes.button}>
               <IconButton
                 component={Link}
@@ -50,6 +49,8 @@ const Navbar = ({ totalItems }) => {
                 </Badge>
               </IconButton>
             </div>
+          ) : (
+            ""
           )}
         </Toolbar>
       </AppBar>

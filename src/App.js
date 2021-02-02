@@ -90,7 +90,12 @@ const App = () => {
           <Route
             path="/products/:permalink"
             render={(routerProps) => {
-              return <ShowProduct routerProps={routerProps} />;
+              return (
+                <ShowProduct
+                  routerProps={routerProps}
+                  onAddToCart={handleAddToCart}
+                />
+              );
             }}
           />
           <Route exact path="/cart">
