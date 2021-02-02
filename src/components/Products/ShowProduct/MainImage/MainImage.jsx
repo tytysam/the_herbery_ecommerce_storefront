@@ -1,12 +1,15 @@
 import React from "react";
+import useStyles from "./mainImageStyles.js";
 
 const MainImage = ({ images, selectedImage }) => {
+  const classes = useStyles();
+
   return (
-    <div>
+    <div className={classes.mainProductImageContainer}>
       <img
-        src={images ? images[selectedImage].url : "Loading images..."}
-        alt={images ? images[selectedImage].filename : "Loading images..."}
-        height="500"
+        src={images ? images[selectedImage].url : ""}
+        alt={images ? images[selectedImage].filename : ""}
+        className={classes.mainProductImage}
       />
     </div>
   );

@@ -8,21 +8,13 @@ export default makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: "#ffffff",
     padding: theme.spacing(3),
     marginTop: 100,
   },
   toolbar: theme.mixins.toolbar,
-  media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9 aspect ratio
-  },
-  cardActions: {
-    display: "flex",
-    justifyContent: "flex-end",
-  },
-  cardContent: {
-    display: "flex",
-    justifyContent: "space-between",
+  productContainer: {
+    maxWidth: "1200px",
+    margin: "0 auto",
   },
 }));

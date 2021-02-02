@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { commerce } from "./lib/commerce.js";
-import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 // import Products from "./components/Products/Products.jsx";
@@ -9,12 +8,13 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 // import Cart from "./components/Cart/Cart.jsx"
 
 import {
-  Products,
-  ShowProduct,
   Navbar,
   Cart,
   Checkout,
   Hero,
+  Products,
+  ShowProduct,
+  Footer,
 } from "./components";
 
 const App = () => {
@@ -90,44 +90,42 @@ const App = () => {
   return (
     <>
       <Router>
-        <div>
-          {/* <CssBaseline /> */}
-          <Navbar totalItems={cart.total_items} />
-          <Switch>
-            <Route exact path="/">
-              <Hero />
-              <Products products={products} onAddToCart={handleAddToCart} />
-            </Route>
-            <Route
-              path="/products/:permalink"
-              render={(routerProps) => {
-                return (
-                  <ShowProduct
-                    routerProps={routerProps}
-                    onAddToCart={handleAddToCart}
-                  />
-                );
-              }}
+        <CssBaseline />
+        <Navbar totalItems={cart.total_items} />
+        <Switch>
+          <Route exact path="/">
+            <Hero />
+            <Products products={products} onAddToCart={handleAddToCart} />
+          </Route>
+          <Route
+            path="/plants/:permalink"
+            render={(routerProps) => {
+              return (
+                <ShowProduct
+                  routerProps={routerProps}
+                  onAddToCart={handleAddToCart}
+                />
+              );
+            }}
+          />
+          <Route exact path="/cart">
+            <Cart
+              cart={cart}
+              handleUpdateCartQuantity={handleUpdateCartQuantity}
+              handleRemoveFromCart={handleRemoveFromCart}
+              handleEmptyCart={handleEmptyCart}
             />
-            <Route exact path="/cart">
-              <Cart
-                cart={cart}
-                handleUpdateCartQuantity={handleUpdateCartQuantity}
-                handleRemoveFromCart={handleRemoveFromCart}
-                handleEmptyCart={handleEmptyCart}
-              />
-            </Route>
-            <Route exact path="/checkout">
-              <Checkout
-                cart={cart}
-                order={order}
-                handleCaptureCheckout={handleCaptureCheckout}
-                error={errorMessage}
-              />
-            </Route>
-          </Switch>
-          {/* <Footer /> */}
-        </div>
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout
+              cart={cart}
+              order={order}
+              handleCaptureCheckout={handleCaptureCheckout}
+              error={errorMessage}
+            />
+          </Route>
+        </Switch>
+        <Footer />
       </Router>
     </>
   );

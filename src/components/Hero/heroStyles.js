@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
   heroContainer: {
     minHeight: "85vh",
     width: "90%",
+    backgroundColor: "#ffffff",
     backgroundImage: `url(${backgroundImage})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -55,12 +56,13 @@ export default makeStyles((theme) => ({
     backgroundColor: "#F6D3BB",
     border: "2px solid #F6D3BB",
     borderRadius: "8px",
-    boxShadow: "3px 3px 1px rgba(0, 0, 0, 0.3)",
+    boxShadow: "3px 3px 1px rgba(0, 0, 0, 0.2)",
     letterSpacing: "6px",
     "&:hover": {
       color: "#ffffff",
       backgroundColor: "#F6D3BB",
-      border: "2px solid #ffffff",
+      // border: "2px solid #ffffff",
+      boxShadow: "3px 3px 10px rgba(0, 0, 0, 0.4)",
     },
 
     [theme.breakpoints.only("sm")]: {

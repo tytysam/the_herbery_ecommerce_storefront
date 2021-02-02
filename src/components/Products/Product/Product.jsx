@@ -20,7 +20,7 @@ const Product = ({ product, onAddToCart }) => {
     <Card className={classes.root}>
       <CardMedia
         component={Link}
-        to={`/products/${product.permalink}`}
+        to={`/plants/${product.permalink}`}
         className={classes.media}
         image={product.assets ? product.assets[currentImage].url : "..."}
         onMouseEnter={() => {
@@ -45,7 +45,6 @@ const Product = ({ product, onAddToCart }) => {
             {product.price.formatted_with_symbol}
           </Typography>
         </div>
-        <Typography variant="body2" color="textSecondary" />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
         {/* <IconButton

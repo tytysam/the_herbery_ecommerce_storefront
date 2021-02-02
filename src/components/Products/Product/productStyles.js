@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
   },
   productName: {
     fontFamily: "Laviossa",
-    fontSize: "1rem",
+    fontSize: "1.3rem",
     padding: "5px",
     textDecoration: "none",
     color: "#3D3833",
@@ -29,7 +29,7 @@ export default makeStyles((theme) => ({
   },
   productPrice: {
     fontFamily: "Laviossa",
-    fontSize: "1.4rem",
+    fontSize: "1.5rem",
     padding: "5px",
     color: "#3D3833",
     [theme.breakpoints.only("xs")]: {
@@ -43,7 +43,7 @@ export default makeStyles((theme) => ({
   addToCartButton: {
     fontFamily: "Laviossa",
     fontSize: "0.9rem",
-    fontWeight: "100",
+    fontWeight: "900",
     backgroundColor: "transparent",
     color: "#3D3833",
     border: "2px solid #3D3833",
@@ -51,8 +51,9 @@ export default makeStyles((theme) => ({
     "&:hover": {
       color: "#D1E0DF",
       backgroundColor: "#00AB84",
-
-      border: "2px solid #D1E0DF",
+      // border: "2px solid #D1E0DF",
+      border: "2px solid #00AB84",
+      // fontSize: "1rem",
     },
     padding: "12px 45px",
     marginBottom: "10px",
@@ -61,6 +62,6 @@ export default makeStyles((theme) => ({
     },
   },
   shoppingBagIcon: {
-    paddingLeft: "25px",
+    marginLeft: "15px",
   },
 }));
