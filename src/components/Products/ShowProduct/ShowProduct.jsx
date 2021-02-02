@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Container,
-  Typography,
-  IconButton,
-} from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
+import ImageGrid from "./ImageGrid/ImageGrid.jsx";
+import MainImage from "./MainImage/MainImage.jsx";
+import ProductInfo from "./ProductInfo/ProductInfo.jsx";
 
 import { commerce } from "../../../lib/commerce.js";
-import useStyles from "./styles.js";
+import useStyles from "./showProductStyles.js";
 
-const ShowProduct = (props) => {
+const ShowProduct = ({ routerProps, onAddToCart }) => {
   const [currentProduct, setCurrentProduct] = useState({});
+  const [selectedImage, setSelectedImage] = useState(0);
   const classes = useStyles();
-  const permalink = props.routerProps.match.params.permalink;
+  const permalink = routerProps.match.params.permalink;
   let fetchedProduct = {};
 
   const fetchCurrentProduct = async () => {
@@ -31,43 +27,34 @@ const ShowProduct = (props) => {
     fetchCurrentProduct();
   }, []);
 
-  // useEffect(() => [setCurrentProduct(fetchedProduct)], [fetchedProduct]);
-
   console.log(currentProduct);
 
   return (
-    <Container>
-      {currentProduct ? (
-        <Card gutterBottom>
-          <CardMedia
-            className={classes.media}
-            image={currentProduct.assets ? currentProduct.assets[0].url : ""}
-            title={currentProduct.name}
-          />
-          <CardContent>
-            <div className={classes.cardContent}>
-              <Typography variant="h5" gutterbottom="true">
-                {currentProduct.name}
-              </Typography>
-              <Typography variant="h5">
-                {currentProduct.price
-                  ? currentProduct.price.formatted_with_symbol
-                  : ""}
-              </Typography>
-            </div>
-            <Typography
-              dangerouslySetInnerHTML={{ __html: currentProduct.description }}
-              variant="body2"
-              color="textSecondary"
+    <main className={classes.content}>
+      <div className={classes.toolbar}>
+        <Grid container spacing={3} className={classes.productContainer}>
+          <Grid item md={1}>
+            <ImageGrid
+              images={currentProduct.assets}
+              onSelect={setSelectedImage}
+              selectedImage={selectedImage}
             />
-          </CardContent>
-        </Card>
-      ) : (
-        <div variant="h4">This product no longer exists...</div>
-      )}
-    </Container>
-    // <>
-    // </>
+          </Grid>
+          <Grid item lg={5}>
+            <MainImage
+              images={currentProduct.assets}
+              selectedImage={selectedImage}
+            />
+          </Grid>
+          <Grid item md={5}>
+            <ProductInfo
+              currentProduct={currentProduct}
+              onAddToCart={onAddToCart}
+            />
+          </Grid>
+        </Grid>
+      </div>
+    </main>
   );
 };
 

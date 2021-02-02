@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# The Herbery - Grow Plants. Cultivate Happiness.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Herbery is a (fake) plant store made for people who live by the mantra: Plants Make People Happy.
 
-## Available Scripts
+- Modern, fully-responsive frontend built with React and Material UI. Highly customizable. Highly scalable. Highly flexible.
 
-In the project directory, you can run:
+- Headless CMS integration with Commerce.js that simplifies product, category, and store management for business owner.
 
-### `yarn start`
+- Stripe checkout flow that can be implemented for any scale of e-commerce business.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Link to site:** https://theherbery.netlify.app/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+### Technologies used:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React.js
+- Commerce.js
+- Node.js
+- Express.js
+- Stripe
+- Material UI
 
-### `yarn build`
+## User Stories
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- User will be able to explore The Herbery's catalogue of plants via their online storefront. View products, add to cart, and process checkout, all without ever leaving the site.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Roadmap:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Address ongoing bugs and issues:
 
-### `yarn eject`
+- Current Bugs: none reported...
+- Current Issues:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### What's Next...
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Continued expansion of styling and supplemental components
+- Add an option to filter products by categories
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<!-- ## Install:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<details>
+<summary>Instructions...</summary>
+<br />
 
-## Learn More
+### Setting up
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You will need to register your own Spotify app and set the credentials in a couple of config files. For that:
 
-### Code Splitting
+1. Create an application on [Spotify's Developer Site](https://developer.spotify.com/my-applications/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Add both http://localhost:3000/auth/callback (for development) and <production_domain>/auth/callback (if you want to deploy your app somewhere) as redirect uris in your Spotify App Settings
 
-### Analyzing the Bundle Size
+3. Create a `.env` file in the root of the project with the following variables;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   - `HOST`
+   - `CLIENT_ID`
+   - `CLIENT_SECRET`
 
-### Making a Progressive Web App
+For Example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+HOST=http://localhost:3000
+CLIENT_ID=<your_client_id>
+CLIENT_SECRET=<your_client_secret>
+```
 
-### Advanced Configuration
+### Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Install the dependencies running `npm install`.
 
-### Deployment
+### Running
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+During development, run `npm run dev`.
 
-### `yarn build` fails to minify
+When running on production, run `npm run build && npm run start`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</details> -->

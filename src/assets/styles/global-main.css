@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Laviossa";
+  src: local("Laviossa"),
+    url(./Laviossa/laviossa-medium-webfont.woff) format("woff");
+}
+
+html > body {
+  background-color: #ffffff !important;
+}

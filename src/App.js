@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { commerce } from "./lib/commerce.js";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 // import Products from "./components/Products/Products.jsx";
 // import Navbar from "./components/Navbar/Navbar.jsx";
 // import Cart from "./components/Cart/Cart.jsx"
 
-import { Products, Navbar, Cart, Checkout, ShowProduct } from "./components";
+import {
+  Navbar,
+  Cart,
+  Checkout,
+  Hero,
+  Products,
+  ShowProduct,
+  Footer,
+} from "./components";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -79,18 +88,24 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <div>
+    <>
+      <Router>
+        <CssBaseline />
         <Navbar totalItems={cart.total_items} />
         <Switch>
           <Route exact path="/">
-            {/* HOME COMPONENT WILL ALSO LIVE HERE */}
+            <Hero />
             <Products products={products} onAddToCart={handleAddToCart} />
           </Route>
           <Route
-            path="/products/:permalink"
+            path="/plants/:permalink"
             render={(routerProps) => {
-              return <ShowProduct routerProps={routerProps} />;
+              return (
+                <ShowProduct
+                  routerProps={routerProps}
+                  onAddToCart={handleAddToCart}
+                />
+              );
             }}
           />
           <Route exact path="/cart">
@@ -110,8 +125,9 @@ const App = () => {
             />
           </Route>
         </Switch>
-      </div>
-    </Router>
+        <Footer />
+      </Router>
+    </>
   );
 };
 
