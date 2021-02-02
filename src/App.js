@@ -2,14 +2,20 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { commerce } from "./lib/commerce.js";
 import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "./theme.js";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 // import Products from "./components/Products/Products.jsx";
 // import Navbar from "./components/Navbar/Navbar.jsx";
 // import Cart from "./components/Cart/Cart.jsx"
 
-import { Products, Navbar, Cart, Checkout, ShowProduct } from "./components";
+import {
+  Products,
+  ShowProduct,
+  Navbar,
+  Cart,
+  Checkout,
+  Hero,
+} from "./components";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -82,14 +88,14 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <>
       <Router>
         <div>
+          {/* <CssBaseline /> */}
           <Navbar totalItems={cart.total_items} />
           <Switch>
             <Route exact path="/">
-              {/* HOME COMPONENT WILL ALSO LIVE HERE */}
+              <Hero />
               <Products products={products} onAddToCart={handleAddToCart} />
             </Route>
             <Route
@@ -123,7 +129,7 @@ const App = () => {
           {/* <Footer /> */}
         </div>
       </Router>
-    </ThemeProvider>
+    </>
   );
 };
 

@@ -2,7 +2,12 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { 500: "#467fcf" },
+    black: { main: "#3D3833" },
+    blush: { main: "#F6D3BB" },
+    cream: { main: "#ECE7DC" },
+    mint: { main: "#D1E0DF" },
+    terracotta: { main: "#BB876A" },
+    succulent: { main: "#00AB84" },
   },
 });
 

@@ -1,28 +1,28 @@
-import { makeStyles, fade } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
-const drawerWidth = 0;
+// const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
   appBar: {
     boxShadow: "none",
     background: "none",
     // borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
-    // width: "80%",
-    // margin: "0 auto",
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+    // [theme.breakpoints.up("sm")]: {
+    //   width: `calc(100% - ${drawerWidth}px)`,
+    //   marginLeft: drawerWidth,
+    // },
   },
   appbarWrapper: {
-    width: "80%",
+    width: "90%",
+    maxWidth: "1450px",
     margin: "0 auto",
+    backgroundColor: "#ffffff",
   },
   title: {
     flexGrow: 1,
     alignItems: "center",
     display: "flex",
-    textDecoration: "none",
+    maxWidth: "275px",
   },
   wordmark: {},
   menuButton: {
@@ -34,6 +34,11 @@ export default makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
+  cartIconButton: {},
+  cartIconBadge: {
+    color: "#00AB84",
+  },
+  cartIcon: {},
   // search: {
   //   position: "relative",
   //   borderRadius: theme.shape.borderRadius,

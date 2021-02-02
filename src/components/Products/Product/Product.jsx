@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  Button,
   Card,
   CardMedia,
   CardContent,
@@ -8,11 +9,12 @@ import {
   Typography,
   IconButton,
 } from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
+import { LocalMall } from "@material-ui/icons/";
 
-import useStyles from "./styles.js";
+import useStyles from "./productStyles.js";
 
 const Product = ({ product, onAddToCart }) => {
+  const [currentImage, setCurrentImage] = useState(0);
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -20,7 +22,13 @@ const Product = ({ product, onAddToCart }) => {
         component={Link}
         to={`/products/${product.permalink}`}
         className={classes.media}
-        image={product.media.source}
+        image={product.assets ? product.assets[currentImage].url : "..."}
+        onMouseEnter={() => {
+          setCurrentImage(1);
+        }}
+        onMouseOut={() => {
+          setCurrentImage(0);
+        }}
         title={product.name}
       />
       <CardContent>
@@ -29,27 +37,30 @@ const Product = ({ product, onAddToCart }) => {
             component={Link}
             to={`/plants/${product.permalink}`}
             variant="h5"
-            gutterBottom
+            className={classes.productName}
           >
             {product.name}
           </Typography>
-          <Typography variant="h5">
+          <Typography variant="h5" className={classes.productPrice}>
             {product.price.formatted_with_symbol}
           </Typography>
         </div>
-        <Typography
-          dangerouslySetInnerHTML={{ __html: product.description }}
-          variant="body2"
-          color="textSecondary"
-        />
+        <Typography variant="body2" color="textSecondary" />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton
+        {/* <IconButton
           aria-label="Add to Cart"
           onClick={() => onAddToCart(product.id, 1)}
         >
           <AddShoppingCart />
-        </IconButton>
+        </IconButton> */}
+        <Button
+          variant="contained"
+          className={classes.addToCartButton}
+          onClick={() => onAddToCart(product.id, 1)}
+        >
+          Add to Bag <LocalMall className={classes.shoppingBagIcon} />
+        </Button>
       </CardActions>
     </Card>
   );

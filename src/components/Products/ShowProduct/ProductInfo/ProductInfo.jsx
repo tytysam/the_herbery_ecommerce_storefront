@@ -8,9 +8,10 @@ const ProductInfo = ({ currentProduct, onAddToCart }) => {
       <Box mt={2}>
         <Typography variant="h4">{currentProduct.name}</Typography>
         <Divider />
-        <Typography variant="subtitle1">
-          {currentProduct.description}
-        </Typography>
+        <Typography
+          variant="subtitle1"
+          dangerouslySetInnerHTML={{ __html: currentProduct.description }}
+        />
         <Typography variant="h5">
           {currentProduct.price
             ? currentProduct.price.formatted_with_symbol
