@@ -3,10 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { commerce } from "./lib/commerce.js";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-// import Products from "./components/Products/Products.jsx";
-// import Navbar from "./components/Navbar/Navbar.jsx";
-// import Cart from "./components/Cart/Cart.jsx"
-
 import {
   Navbar,
   Cart,
@@ -15,6 +11,7 @@ import {
   Products,
   ShowProduct,
   Footer,
+  PageNotFound,
 } from "./components";
 
 const App = () => {
@@ -124,6 +121,7 @@ const App = () => {
               error={errorMessage}
             />
           </Route>
+          <Route component={PageNotFound} />
         </Switch>
         <Footer />
       </Router>
