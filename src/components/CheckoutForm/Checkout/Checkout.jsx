@@ -13,9 +13,9 @@ import {
 import { commerce } from "../../../lib/commerce.js";
 import { Link, useHistory } from "react-router-dom";
 
-import useStyles from "./styles.js";
-import AddressForm from "../AddressForm.jsx";
-import PaymentForm from "../PaymentForm.jsx";
+import useStyles from "./checkoutStyles.js";
+import AddressForm from "../AddressForm/AddressForm.jsx";
+import PaymentForm from "../PaymentForm/PaymentForm.jsx";
 
 const steps = ["Shipping Address", "Payment Details"];
 
@@ -59,7 +59,7 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
   const timeout = () => {
     setTimeout(() => {
       setIsFinished(true);
-    }, 3000);
+    }, 8000);
   };
 
   let Confirmation = () =>
@@ -76,7 +76,13 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
           </Typography>
         </div>
         <br />
-        <Button component={Link} to="/" variant="outlined" type="button">
+        <Button
+          component={Link}
+          to="/"
+          variant="outlined"
+          type="button"
+          className={classes.backCheckoutStepButton}
+        >
           {" "}
           Back to Home
         </Button>
@@ -88,7 +94,13 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
           <Divider className={classes.divider} />
         </div>
         <br />
-        <Button component={Link} to="/" variant="outlined" type="button">
+        <Button
+          component={Link}
+          to="/"
+          variant="outlined"
+          type="button"
+          className={classes.backCheckoutStepButton}
+        >
           {" "}
           Back to Home
         </Button>
@@ -103,7 +115,13 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
     <>
       <Typography variant="h5">Error: {error}</Typography>
       <br />
-      <Button component={Link} to="/" variant="outlined" type="button">
+      <Button
+        component={Link}
+        to="/"
+        variant="outlined"
+        type="button"
+        className={classes.backCheckoutStepButton}
+      >
         {" "}
         Back to Home
       </Button>
@@ -130,13 +148,23 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
       <div className={classes.toolbar} />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <Typography variant="h4" align="center">
+          <Typography variant="h4" className={classes.checkoutHeader}>
             Checkout
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((step) => (
-              <Step key={step}>
-                <StepLabel>{step}</StepLabel>
+              <Step key={step} className={classes.checkoutStepCounter}>
+                <StepLabel
+                  StepIconProps={{
+                    classes: {
+                      active: classes.active,
+                      completed: classes.completed,
+                      disabled: classes.disabled,
+                    },
+                  }}
+                >
+                  {step}
+                </StepLabel>
               </Step>
             ))}
           </Stepper>
@@ -147,6 +175,7 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
           )}
         </Paper>
       </main>
+      <div className={classes.spacerDiv} />
     </>
   );
 };

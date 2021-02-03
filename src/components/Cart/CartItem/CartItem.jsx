@@ -8,25 +8,27 @@ import {
   CardMedia,
 } from "@material-ui/core";
 
-import useStyles from "./styles.js";
+import useStyles from "./cartItemStyles.js";
 
 const CartItem = ({ item, handleRemoveFromCart, handleUpdateCartQuantity }) => {
   const classes = useStyles();
 
   return (
-    <Card>
+    <Card className={classes.cardContentContainer}>
       <CardMedia
         image={item.media.source}
         alt={item.name}
         className={classes.media}
       />
       <CardContent className={classes.cardContent}>
-        <Typography variant="h4">{item.name}</Typography>
-        <Typography variant="h5">
+        <Typography variant="h4" className={classes.productName}>
+          {item.name}
+        </Typography>
+        <Typography variant="h5" className={classes.productPrice}>
           {item.line_total.formatted_with_symbol}
         </Typography>
       </CardContent>
-      <CardActions className={classes.cardActions}>
+      <CardActions>
         <div className={classes.buttons}>
           {/*  DECREMENT Button */}
           <Button
@@ -45,15 +47,15 @@ const CartItem = ({ item, handleRemoveFromCart, handleUpdateCartQuantity }) => {
           >
             +
           </Button>
+          <Button
+            variant="text"
+            type="button"
+            className={classes.removeProductButton}
+            onClick={() => handleRemoveFromCart(item.id)}
+          >
+            Remove
+          </Button>
         </div>
-        <Button
-          variant="contained"
-          type="button"
-          color="secondary"
-          onClick={() => handleRemoveFromCart(item.id)}
-        >
-          Remove
-        </Button>
       </CardActions>
     </Card>
   );

@@ -1,9 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
   toolbar: theme.mixins.toolbar,
   layout: {
     marginTop: "5%",
@@ -30,9 +27,18 @@ export default makeStyles((theme) => ({
       padding: theme.spacing(3),
     },
   },
+  checkoutHeader: {
+    fontFamily: "Laviossa",
+    fontSize: "2.5rem",
+    textAlign: "center",
+  },
   stepper: {
     padding: theme.spacing(3, 0, 5),
   },
+  checkoutStepCounter: {},
+  active: { color: "#00AB84 !important" },
+  completed: { color: "#BB876A !important" },
+  disabled: {},
   buttons: {
     display: "flex",
     justifyContent: "flex-end",
@@ -41,6 +47,15 @@ export default makeStyles((theme) => ({
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
   },
+  backCheckoutStepButton: {
+    fontFamily: "Laviossa",
+    color: "#BB876A",
+    backgroundColor: "transparent",
+    border: "2px solid #BB876A",
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
   divider: {
     margin: "20px 0",
   },
@@ -48,5 +63,8 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+  spacerDiv: {
+    height: "50px",
   },
 }));

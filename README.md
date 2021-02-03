@@ -1,4 +1,4 @@
-# The Herbery - Grow Plants. Cultivate Happiness.
+# The Herbery | Grow Plants. Cultivate Happiness.
 
 The Herbery is a (fake) plant store made for people who live by the mantra: Plants Make People Happy.
 

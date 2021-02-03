@@ -33,7 +33,7 @@ export default makeStyles((theme) => ({
     padding: "5px",
     color: "#3D3833",
     [theme.breakpoints.only("xs")]: {
-      fontSize: "2rem",
+      fontSize: "0.8rem",
     },
   },
   cardActions: {

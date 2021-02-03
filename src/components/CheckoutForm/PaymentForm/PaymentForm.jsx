@@ -7,7 +7,8 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-import Review from "./Review.jsx";
+import Review from "../Review.jsx";
+import useStyles from "./paymentFormStyles.js";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
@@ -19,6 +20,7 @@ const PaymentForm = ({
   nextStep,
   timeout,
 }) => {
+  const classes = useStyles();
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
 
@@ -78,14 +80,18 @@ const PaymentForm = ({
               <CardElement />
               <br /> <br />
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <Button variant="outlined" onClick={backStep}>
+                <Button
+                  variant="outlined"
+                  onClick={backStep}
+                  className={classes.backCheckoutStepButton}
+                >
                   Back
                 </Button>
                 <Button
                   type="submit"
                   variant="contained"
                   disabled={!stripe}
-                  color="primary"
+                  className={classes.payCheckoutStepButton}
                 >
                   Pay {checkoutToken.live.subtotal.formatted_with_symbol}
                 </Button>
