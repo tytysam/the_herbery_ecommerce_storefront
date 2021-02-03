@@ -30,7 +30,11 @@ const ProductInfo = ({ currentProduct, onAddToCart }) => {
       </Box>
 
       <Divider className={classes.productInfoDivider} />
+
       <Box mt={1} className={classes.productDescriptionHtmlContainer}>
+        <Typography variant="h4" className={classes.productDescriptionHeader}>
+          Plant Description:
+        </Typography>
         <Typography
           variant="body1"
           className={classes.productDescriptionHtml}
