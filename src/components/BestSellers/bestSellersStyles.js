@@ -40,8 +40,12 @@ export default makeStyles((theme) => ({
     fontSize: "1.6rem",
     textAlign: "center",
     paddingTop: "15px",
+    color: "#3D3833",
+    "&:hover": {
+      color: "#00AB84",
+    },
   },
-  firstColumn: {},
+  firstColumn: { textDecoration: "none" },
   lowLightImageContainer: {
     backgroundImage: `url(${lowLight})`,
     minHeight: "350px",
@@ -52,6 +56,8 @@ export default makeStyles((theme) => ({
     backgroundSize: "cover",
   },
   middleColumn: {
+    textDecoration: "none",
+
     [theme.breakpoints.only("xs")]: {
       marginTop: "20px",
     },
@@ -70,6 +76,8 @@ export default makeStyles((theme) => ({
     },
   },
   thirdColumn: {
+    textDecoration: "none",
+
     [theme.breakpoints.only("xs")]: {
       marginTop: "20px",
     },

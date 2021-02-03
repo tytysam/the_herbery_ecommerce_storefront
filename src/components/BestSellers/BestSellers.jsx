@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, Grid, Typography } from "@material-ui/core";
 
 import useStyles from "./bestSellersStyles.js";
@@ -18,19 +19,37 @@ const BestSellers = () => {
           spacing={3}
           className={classes.bestBotanicalsColumnContainer}
         >
-          <Grid item sm={4} className={classes.firstColumn}>
+          <Grid
+            item
+            component={Link}
+            to="/"
+            sm={4}
+            className={classes.firstColumn}
+          >
             <div className={classes.lowLightImageContainer}></div>
             <Typography variant="h3" className={classes.bestBotanicalsSubtitle}>
-              Best For Low-Light
+              Best for Low-Light
             </Typography>
           </Grid>
-          <Grid item sm={4} className={classes.middleColumn}>
+          <Grid
+            item
+            component={Link}
+            to="/"
+            sm={4}
+            className={classes.middleColumn}
+          >
             <div className={classes.bestSellersImageContainer}></div>
             <Typography variant="h3" className={classes.bestBotanicalsSubtitle}>
               Best Sellers
             </Typography>
           </Grid>
-          <Grid item sm={4} className={classes.thirdColumn}>
+          <Grid
+            item
+            component={Link}
+            to="/"
+            sm={4}
+            className={classes.thirdColumn}
+          >
             <div className={classes.careFreeImageContainer}></div>
             <Typography variant="h3" className={classes.bestBotanicalsSubtitle}>
               Best for Beginners
