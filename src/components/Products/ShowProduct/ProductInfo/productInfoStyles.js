@@ -48,7 +48,13 @@ export default makeStyles(() => ({
   },
   productInfoDivider: {
     marginTop: "20px",
-    width: "75%",
+    width: "80%",
+  },
+  productDescriptionHeader: {
+    fontFamily: "Laviossa",
+    fontSize: "1.5rem",
+    marginTop: "10px",
+    marginBottom: "0",
   },
   productDescriptionHtmlContainer: {
     marginRight: "50px",

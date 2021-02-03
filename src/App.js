@@ -8,6 +8,7 @@ import {
   Cart,
   Checkout,
   Hero,
+  BestBotanicals,
   Products,
   ShowProduct,
   Footer,
@@ -92,6 +93,7 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <Hero />
+            <BestBotanicals />
             <Products products={products} onAddToCart={handleAddToCart} />
           </Route>
           <Route

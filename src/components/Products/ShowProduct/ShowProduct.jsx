@@ -3,6 +3,7 @@ import { Container, Grid, Typography } from "@material-ui/core";
 import ImageGrid from "./ImageGrid/ImageGrid.jsx";
 import MainImage from "./MainImage/MainImage.jsx";
 import ProductInfo from "./ProductInfo/ProductInfo.jsx";
+import RelatedProducts from "./RelatedProducts/RelatedProducts.jsx";
 
 import { commerce } from "../../../lib/commerce.js";
 import useStyles from "./showProductStyles.js";
@@ -54,6 +55,7 @@ const ShowProduct = ({ routerProps, onAddToCart }) => {
           </Grid>
         </Grid>
       </div>
+      <RelatedProducts currentProduct={currentProduct} />
     </main>
   );
 };
