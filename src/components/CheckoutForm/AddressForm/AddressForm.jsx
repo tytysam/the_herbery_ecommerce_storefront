@@ -10,9 +10,10 @@ import {
 import { useForm, FormProvider } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-import { commerce } from "../../lib/commerce";
+import { commerce } from "../../../lib/commerce.js";
+import useStyles from "./addressFormStyles.js";
 
-import FormInput from "./CustomTextField.jsx";
+import FormInput from "../CustomTextField.jsx";
 
 const AddressForm = ({ checkoutToken, next }) => {
   //
@@ -23,6 +24,7 @@ const AddressForm = ({ checkoutToken, next }) => {
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState("");
 
+  const classes = useStyles();
   const methods = useForm();
 
   // Object.entries will return the keys + values on an object
@@ -163,10 +165,19 @@ const AddressForm = ({ checkoutToken, next }) => {
           </Grid>
           <br />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Button component={Link} to="/cart" variant="outlined">
+            <Button
+              component={Link}
+              to="/cart"
+              variant="outlined"
+              className={classes.backCheckoutStepButton}
+            >
               Back to Cart
             </Button>
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              type="submit"
+              variant="contained"
+              className={classes.nextCheckoutStepButton}
+            >
               Next
             </Button>
           </div>
