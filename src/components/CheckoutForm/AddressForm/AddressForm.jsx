@@ -73,8 +73,6 @@ const AddressForm = ({ checkoutToken, next }) => {
       }
     );
 
-    console.log(options);
-
     setShippingOptions(options);
     setShippingOption(options[0].id);
   };

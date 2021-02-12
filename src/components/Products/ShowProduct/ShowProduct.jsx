@@ -20,15 +20,12 @@ const ShowProduct = ({ routerProps, onAddToCart }) => {
       type: "permalink",
     });
 
-    console.log(fetchedProduct);
     setCurrentProduct(fetchedProduct);
   };
 
   useEffect(() => {
     fetchCurrentProduct();
   }, []);
-
-  console.log(currentProduct);
 
   return (
     <main className={classes.content}>
