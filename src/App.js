@@ -15,6 +15,8 @@ import {
   PageNotFound,
 } from "./components";
 
+import digitalSignature from "./assets/extra-goodies/digitalSignature.js";
+
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
@@ -81,6 +83,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    digitalSignature();
     fetchProducts();
     fetchCart();
   }, []);
